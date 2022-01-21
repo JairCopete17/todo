@@ -5,9 +5,7 @@ export default function Form ({ addTask }) {
 
 	const handleSubmit = (e) => {
 		e.preventDefault()
-		text == ''
-			? alert('Yikes')
-			: addTask(text)
+		text == '' ? alert('Yikes')	: addTask(text)
 		setText('')
 	}
 
@@ -23,6 +21,7 @@ export default function Form ({ addTask }) {
 				onChange={handleChange}
 				placeholder="Write a new task"
 				className="bg-gray-300 w-full h-14 px-5 rounded-lg transition ease-in focus:outline-none focus:shadow-lg"
+				required
       />
     </form>
   )
