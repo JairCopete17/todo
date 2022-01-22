@@ -1,4 +1,4 @@
-import Task from '../Task'
+import Task from './Task'
 
 export default function ListOfTasks ({ tasks, deleteTask, completeTask }) {
 	return (
