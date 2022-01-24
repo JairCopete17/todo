@@ -1,20 +1,25 @@
 import { useRef } from 'react'
 
-export default function Task ({ id, text, state, deleteTask, completeTask }) {
+export default function Task ({ id, text, state, date, deleteTask, completeTask }) {
   const inputRef = useRef()
 
   return (
-    <li className="bg-gray-100 flex flex-row items-center gap-4 w-full min-h-min p-4 rounded-lg select-none">
+    <li className={
+      state
+      ? "bg-gray-300 flex flex-row items-center gap-4 w-full min-h-min p-4 rounded-lg select-none transition-all"
+      : "bg-gray-100 flex flex-row items-center gap-4 w-full min-h-min p-4 rounded-lg select-none transition-all"
+    }
+    >
       <input
         type="checkbox"
-        className="flex items-center accent-teal-600"
+        className="flex items-center accent-slate-600"
         id={id}
         ref={inputRef}
         defaultChecked={state}
-        onChange={() => completeTask(inputRef, text, state)}
+        onChange={() => completeTask(inputRef, text, date, state)}
       ></input>
       <label
-        className={state ? "h-full w-full line-through transition-all": "h-full w-full"}
+        className={state ? "h-full w-full line-through decoration-2": "h-full w-full"}
         htmlFor={id}
       >
         {text}
